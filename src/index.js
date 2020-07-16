@@ -22,6 +22,17 @@ class TerrainLayer {
             const upperRight = keys.includes(`${x+1}_${y-1}`);
             const upper = keys.includes(`${x}_${y-1}`);
 
+            if (upperLeft && left && lowerLeft && lower && lowerRight && right && upperRight && upper) {
+                images.push({
+                    src: fill,
+                    cellWidth: 1,
+                    cellHeight: 1,
+                    cellX: x,
+                    cellY: y,
+                });
+                return;
+            }
+
             let upperLeftImage = null;
             if (!left && !upperLeft && !upper) {
                 upperLeftImage = corner;
