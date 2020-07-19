@@ -1,8 +1,8 @@
-import corner from "../images/corner.png";
-import flat_horiz from "../images/flat_horiz.png";
-import flat_vert from "../images/flat_vert.png";
-import fill from "../images/fill.png";
-import chunk_out from "../images/chunk_out.png";
+import corner from "./images/corner.png";
+import flat_horiz from "./images/flat_horiz.png";
+import flat_vert from "./images/flat_vert.png";
+import fill from "./images/fill.png";
+import chunk_out from "./images/chunk_out.png";
 
 class TerrainLayer {
     static getLayer(terrainCells) {
@@ -34,79 +34,55 @@ class TerrainLayer {
             }
 
             let upperLeftImage = null;
-            if (!left && !upperLeft && !upper) {
+            if (!left && !upper) {
                 upperLeftImage = corner;
-            } else if (left && !upperLeft && !upper) {
+            } else if (left && !upper) {
                 upperLeftImage = flat_horiz;
-            } else if (!left && !upperLeft && upper) {
+            } else if (!left && upper) {
                 upperLeftImage = flat_vert;
             } else if (left && upperLeft && upper) {
                 upperLeftImage = fill;
             } else if (left && !upperLeft && upper) {
                 upperLeftImage = chunk_out;
-            } else if (left && upperLeft && !upper) {
-                upperLeftImage = flat_horiz;
-            } else if (!left && upperLeft && upper) {
-                upperLeftImage = flat_vert;
-            } else if (!left && upperLeft && !upper) {
-                upperLeftImage = corner;
             }
 
             let upperRightImage = null;
-            if (!upper && !upperRight && !right) {
+            if (!upper && !right) {
                 upperRightImage = corner;
-            } else if (right && !upperRight && !upper) {
+            } else if (right && !upper) {
                 upperRightImage = flat_vert;
-            } else if (!right && !upperRight && upper) {
+            } else if (!right && upper) {
                 upperRightImage = flat_horiz;
             } else if (right && upperRight && upper) {
                 upperRightImage = fill;
             } else if (right && !upperRight && upper) {
                 upperRightImage = chunk_out;
-            } else if (right && upperRight && !upper) {
-                upperRightImage = flat_vert;
-            } else if (!right && upperRight && upper) {
-                upperRightImage = flat_horiz;
-            } else if (!right && upperRight && !upper) {
-                upperRightImage = corner;
             }
 
             let lowerLeftImage = null;
-            if (!left && !lowerLeft && !lower) {
+            if (!left && !lower) {
                 lowerLeftImage = corner;
-            } else if (left && !lowerLeft && !lower) {
+            } else if (left && !lower) {
                 lowerLeftImage = flat_vert;
-            } else if (!left && !lowerLeft && lower) {
+            } else if (!left && lower) {
                 lowerLeftImage = flat_horiz;
             } else if (left && lowerLeft && lower) {
                 lowerLeftImage = fill;
             } else if (left && !lowerLeft && lower) {
                 lowerLeftImage = chunk_out;
-            } else if (left && lowerLeft && !lower) {
-                lowerLeftImage = flat_vert;
-            } else if (!left && lowerLeft && lower) {
-                lowerLeftImage = flat_horiz;
-            } else if (!left && lowerLeft && !lower) {
-                lowerLeftImage = corner;
             }
 
             let lowerRightImage = null;
-            if (!right && !lowerRight && !lower) {
+            if (!right && !lower) {
                 lowerRightImage = corner;
-            } else if (right && !lowerRight && !lower) {
+            } else if (right && !lower) {
                 lowerRightImage = flat_horiz;
-            } else if (!right && !lowerRight && lower) {
+            } else if (!right && lower) {
                 lowerRightImage = flat_vert;
             } else if (right && lowerRight && lower) {
                 lowerRightImage = fill;
             } else if (right && !lowerRight && lower) {
                 lowerRightImage = chunk_out;
-            } else if (right && lowerRight && !lower) {
-                lowerRightImage = flat_horiz;
-            } else if (!right && lowerRight && lower) {
-                lowerRightImage = flat_vert;
-            } else if (!right && lowerRight && !lower) {
-                lowerRightImage = corner;
             }
 
             if (upperLeftImage) {
