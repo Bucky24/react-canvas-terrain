@@ -6,12 +6,13 @@
 	"scripts": {
 		"clean": "rm -rf build",
 		"build": "babel src --out-dir build --copy-files",
-		"basicExample": "webpack-dev-server --config ./examples/basicExample/webpack.config.js"
+		"basicExample": "webpack-dev-server --config ./examples/basicExample/webpack.config.js",
+		"publish": "npm run build && npm publish --access=public"
 	},
 	"files": [
 		"build"
 	],
-	"author": "",
+	"author": "Bucky24",
 	"license": "ISC",
 	"devDependencies": {
 		"@babel/cli": "^7.10.4",
