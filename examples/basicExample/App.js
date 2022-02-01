@@ -3,10 +3,9 @@ import { Canvas } from '@bucky24/react-canvas';
 import { Map } from "@bucky24/react-canvas-map";
 import TerrainLayer from "@bucky24/react-canvas-terrain";
 
-
 function App() {
-    const width = 500;
-    const height = 400;
+    const width = 700;
+    const height = 700;
 
     const [terrainCells, setCells] = useState([
         { x: 3, y: 3 },
@@ -32,9 +31,6 @@ function App() {
                 mapBackground={{
                     color: "#00f",
                 }}
-                layers={[
-                    TerrainLayer.getLayer(terrainCells),
-                ]}
                 onClick={(x, y) => {
                     const index = terrainCells.findIndex(({ x: tx, y: ty }) => {
                         return x == tx && y == ty;
@@ -50,7 +46,9 @@ function App() {
                         ]);
                     }
                 }} 
-            />
+            >
+                <TerrainLayer terrainCells={terrainCells} />
+            </Map>
         </Canvas>
     </div>);
 }
