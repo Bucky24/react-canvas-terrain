@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layer, LayerPassthrough } from '@bucky24/react-canvas-map';
+import { Layer, LayerPassthrough, LayerImage } from '@bucky24/react-canvas-map';
 
 import corner from "./images/corner.png";
 import flat_horiz from "./images/flat_horiz.png";
@@ -88,58 +88,56 @@ export default function TerrainLayer({ terrainCells }) {
         }
 
         if (upperLeftImage) {
-            images.push({
-                src: upperLeftImage,
-                cellWidth: 0.5,
-                cellHeight: 0.5,
-                cellX: x,
-                cellY: y,
-            });
+            images.push(<LayerImage
+                src={upperLeftImage}
+                x={x}
+                y={y}
+                width={0.5}
+                height={0.5}
+            />);
         }
 
         if (upperRightImage) {
-            images.push({
-                src: upperRightImage,
-                cellWidth: 0.5,
-                cellHeight: 0.5,
-                cellX: x,
-                cellY: y,
-                rot: 90,
-                xOff: 0.5,
-            });
+            images.push(<LayerImage
+                src={upperRightImage}
+                x={x}
+                y={y}
+                width={0.5}
+                height={0.5}
+                rot={90}
+                xOff={0.5}
+            />);
         }
 
         if (lowerLeftImage) {
-            images.push({
-                src: lowerLeftImage,
-                cellWidth: 0.5,
-                cellHeight: 0.5,
-                cellX: x,
-                cellY: y,
-                rot: 270,
-                yOff: 0.5,
-            });
+            images.push(<LayerImage
+                src={lowerLeftImage}
+                x={x}
+                y={y}
+                width={0.5}
+                height={0.5}
+                rot={270}
+                yOff={0.5}
+            />);
         }
 
         if (lowerRightImage) {
-            images.push({
-                src: lowerRightImage,
-                cellWidth: 0.5,
-                cellHeight: 0.5,
-                cellX: x,
-                cellY: y,
-                rot: 180,
-                xOff: 0.5,
-                yOff: 0.5,
-            });
+            images.push(<LayerImage
+                src={lowerRightImage}
+                x={x}
+                y={y}
+                width={0.5}
+                height={0.5}
+                rot={180}
+                xOff={0.5}
+                yOff={0.5}
+            />);
         }
     });
 
     return (
         <Layer>
-            <LayerPassthrough
-                layer={{ images }}
-            />
+            {images}
         </Layer>
     );
 }
