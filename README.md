@@ -34,3 +34,4 @@ This is the main object that describes where terrain falls on the map.
 | Name | Description |
 | -- | -- |
 | land | Land processor. Meant for generating land masses and islands. Type is not used |
+| dungeon | Dungeon processor. Meant for generating top down caves. Type can be "ground" or "hole" |

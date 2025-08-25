@@ -9,10 +9,10 @@ function App() {
 
     const [terrainCells, setCells] = useState([
         { x: 3, y: 3 },
-        { x: 4, y: 3 },
-        { x: 3, y: 2 },
         { x: 3, y: 4 },
-        { x: 2, y: 3 },
+        /*{ x: 3, y: 2 },
+        { x: 4, y: 3 },
+        { x: 2, y: 3 },*/
     ]);
 
     return (<div>
@@ -29,7 +29,7 @@ function App() {
                 xOff={0}
                 yOff={0}
                 mapBackground={{
-                    color: "#00f",
+                    color: "#000",
                 }}
                 onClick={(x, y) => {
                     const index = terrainCells.findIndex(({ x: tx, y: ty }) => {
@@ -47,7 +47,7 @@ function App() {
                     }
                 }}
             >
-                <TerrainLayer terrainCells={terrainCells} processor="land" />
+                <TerrainLayer terrainCells={terrainCells} processor="dungeon" />
             </Map>
         </Canvas>
     </div>);

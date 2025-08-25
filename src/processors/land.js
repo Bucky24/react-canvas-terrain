@@ -1,10 +1,10 @@
 import React from 'react';
 import BaseProcessor from "./base";
-import corner from "../images/corner.png";
-import flat_horiz from "../images/flat_horiz.png";
-import flat_vert from "../images/flat_vert.png";
-import fill from "../images/fill.png";
-import chunk_out from "../images/chunk_out.png";
+import corner from "../images/land/corner.png";
+import flat_horiz from "../images/land/flat_horiz.png";
+import flat_vert from "../images/land/flat_vert.png";
+import fill from "../images/land/fill.png";
+import chunk_out from "../images/land/chunk_out.png";
 import { LayerImage } from "@bucky24/react-canvas-map/build/LayerImage";
 
 export default class LandProcessor extends BaseProcessor {
@@ -22,12 +22,12 @@ export default class LandProcessor extends BaseProcessor {
     if (upperLeft && left && lowerLeft && lower && lowerRight && right && upperRight && upper) {
       images.push({
         src: fill,
-        cellWidth: 1,
-        cellHeight: 1,
-        cellX: x,
-        cellY: y,
+        width: 1,
+        height: 1,
+        x,
+        y,
       });
-      return;
+      return images;
     }
     
     let upperLeftImage = null;
@@ -83,50 +83,50 @@ export default class LandProcessor extends BaseProcessor {
     }
     
     if (upperLeftImage) {
-      images.push(<LayerImage
-        src={upperLeftImage}
-        x={x}
-        y={y}
-        width={0.5}
-        height={0.5}
-      />);
+      images.push({
+        src: upperLeftImage,
+        x,
+        y,
+        width: 0.5,
+        height: 0.5,
+      });
     }
     
     if (upperRightImage) {
-      images.push(<LayerImage
-        src={upperRightImage}
-        x={x}
-        y={y}
-        width={0.5}
-        height={0.5}
-        rot={90}
-        xOff={0.5}
-      />);
+      images.push({
+        src: upperRightImage,
+        x,
+        y,
+        width: 0.5,
+        height: 0.5,
+        rot: 90,
+        xOff: 0.5,
+      });
     }
     
     if (lowerLeftImage) {
-      images.push(<LayerImage
-        src={lowerLeftImage}
-        x={x}
-        y={y}
-        width={0.5}
-        height={0.5}
-        rot={270}
-        yOff={0.5}
-      />);
+      images.push({
+        src: lowerLeftImage,
+        x,
+        y,
+        width: 0.5,
+        height: 0.5,
+        rot: 270,
+        yOff: 0.5,
+      });
     }
     
     if (lowerRightImage) {
-      images.push(<LayerImage
-        src={lowerRightImage}
-        x={x}
-        y={y}
-        width={0.5}
-        height={0.5}
-        rot={180}
-        xOff={0.5}
-        yOff={0.5}
-      />);
+      images.push({
+        src: lowerRightImage,
+        x,
+        y,
+        width: 0.5,
+        height: 0.5,
+        rot: 180,
+        xOff: 0.5,
+        yOff: 0.5,
+      });
     }
     return images;
   }
