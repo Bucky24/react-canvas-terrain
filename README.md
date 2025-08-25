@@ -17,6 +17,7 @@ This is the default and currently only component exported by this module. The Te
 | Param | Description | Required |
 | -- | -- | -- |
 | terrainCells | list of TerrainCell objects | Yes |
+| processor | Determines which terrain processor to use. One of [PROCESSOR](#processor) | Yes |
 
 ## TerrainCell
 
@@ -26,3 +27,10 @@ This is the main object that describes where terrain falls on the map.
 | -- | -- | -- |
 | x | The X coordinate of the terrain cell | Yes |
 | y | The Y coordinate of the terrain cell | Yes |
+| type | Type of the cell. See specific processor for details | No |
+
+## PROCESSOR
+
+| Name | Description |
+| -- | -- |
+| land | Land processor. Meant for generating land masses and islands. Type is not used |

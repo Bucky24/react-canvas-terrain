@@ -1,6 +1,6 @@
 {
 	"name": "@bucky24/react-canvas-terrain",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Terrain mod for react canvas map",
 	"main": "index.js",
 	"scripts": {

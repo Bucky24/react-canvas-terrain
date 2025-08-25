@@ -45,7 +45,7 @@ function App() {
                             { x, y },
                         ]);
                     }
-                }} 
+                }}
             >
                 <TerrainLayer terrainCells={terrainCells} />
             </Map>
