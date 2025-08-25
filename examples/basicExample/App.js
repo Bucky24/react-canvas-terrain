@@ -47,7 +47,7 @@ function App() {
                     }
                 }}
             >
-                <TerrainLayer terrainCells={terrainCells} />
+                <TerrainLayer terrainCells={terrainCells} processor="land" />
             </Map>
         </Canvas>
     </div>);
