@@ -30,13 +30,16 @@ export default function TerrainLayer({ terrainCells, processor }) {
             keys.add(`${x}_${y+1}`);
             keys.add(`${x-1}_${y+1}`);
             keys.add(`${x-1}_${y}`);
+            keys.add(`${x-1}_${y-2}`);
+            keys.add(`${x}_${y-2}`);
+            keys.add(`${x+1}_${y-2}`);
         }
 
         const newImages = [];
         Array.from(keys).forEach((key) => {
             const [x, y] = key.split("_");
             const images = instance.getCell(parseInt(x), parseInt(y));
-            console.log(x, y, images);
+            //console.log(x, y, images);
             if (!images) return;
             if (Array.isArray(images)) {
                 newImages.push(...images);
@@ -48,10 +51,10 @@ export default function TerrainLayer({ terrainCells, processor }) {
     }, [terrainCells]);
 
     if (images.length === 0) return;
-    console.log(images);
+    //console.log(images);
     return (<Layer>
         {images.map(data => {
-            console.log(data);
+            //console.log(data);
             return <LayerImage {...data} />
         })}
     </Layer>);
