@@ -1,20 +1,35 @@
-import BaseProcessor from "./base"
+import BaseProcessor from "./base";
 
 import Ground0001 from '../images/dungeon/ground_0_0_0_1.png';
 import CliffTopCenter from '../images/dungeon/cliff_top_center.png';
 import GroundDefault from '../images/dungeon/ground_default.png';
 import Ground1001 from '../images/dungeon/ground_1_0_0_1.png';
+import Ground1100 from '../images/dungeon/ground_1_1_0_0.png';
+import Ground1011 from '../images/dungeon/ground_1_0_1_1.png';
+import Corner0110 from '../images/dungeon/corner_0_1_1_0.png';
 
 const THING = "   \n" + 
               " X \n" +
               "-*-\n" +
               "---";
 const THING2 = "   \n" + 
-               " . \n" +
+               "-.-\n" +
                "-*-\n" +
-               "-*-";
+               "---";
 const THING3 = "   \n" + 
                "*X \n" +
+               "-*-\n" +
+               "---";
+const THING4 = "   \n" + 
+               " X*\n" +
+               "-*-\n" +
+               "---";
+const THING5 = "- -\n" + 
+               "*X*\n" +
+               "-*-\n" +
+               "---";
+const THING6 = " * \n" + 
+               "*X*\n" +
                "-*-\n" +
                "---";
 
@@ -50,6 +65,12 @@ export default class DungeonProcessor extends BaseProcessor {
       image = CliffTopCenter;
     } else if (compareGrid(THING3, grid)) {
       image = Ground1001;
+    } else if (compareGrid(THING4, grid)) {
+      image = Ground1100;
+    } else if (compareGrid(THING5, grid)) {
+      image = Ground1011;
+    } else if (compareGrid(THING6, grid)) {
+      image = Corner0110;
     }
 
     const type = this.keys[`${x}_${y}`];
