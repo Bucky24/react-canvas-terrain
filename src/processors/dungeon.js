@@ -10,9 +10,12 @@ import Ground1000 from '../images/dungeon/ground_1_0_0_0.png';
 import Ground0100 from '../images/dungeon/ground_0_1_0_0.png';
 import Ground1010 from '../images/dungeon/ground_1_0_1_0.png';
 import Ground1111 from '../images/dungeon/ground_1_1_1_1.png';
+import Ground1100 from '../images/dungeon/ground_1_1_0_0.png';
+import Ground0110 from '../images/dungeon/ground_0_1_1_0.png';
 
 import Corner0110 from '../images/dungeon/corner_0_1_1_0.png';
 import Corner1111 from '../images/dungeon/corner_1_1_1_1.png';
+import Corner1110 from '../images/dungeon/corner_1_1_1_0.png';
 
 import CliffTopCenter from '../images/dungeon/cliff_top_center.png';
 import CliffTopTop from '../images/dungeon/cliff_top_top.png';
@@ -84,6 +87,18 @@ const THING16 = "- -\n" +
                 " . \n" +
                 "* -\n" +
                 "-*-";
+const THING17 = "**-\n" + 
+                "*X \n" +
+                "  -\n" +
+                "---";
+const THING18 = "-**\n" + 
+                " X*\n" +
+                "-  \n" +
+                "---";
+const THING19 = " * \n" + 
+                "*X*\n" +
+                "** \n" +
+                "---";
 
 function compareGrid(template, grid) {
   for (let i=0;i<template.length;i++) {
@@ -143,6 +158,12 @@ export default class DungeonProcessor extends BaseProcessor {
       image = CliffTopRightCorner;
     } else if (compareGrid(THING16, grid)) {
       image = CliffTopLeft;
+    } else if (compareGrid(THING17, grid)) {
+      image = Ground1100;
+    } else if (compareGrid(THING18, grid)) {
+      image = Ground0110;
+    } else if (compareGrid(THING19, grid)) {
+      image = Corner1110;
     }
 
     const log = y === 1 && x === 4;
