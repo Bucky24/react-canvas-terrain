@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Canvas } from '@bucky24/react-canvas';
 import { Map } from "@bucky24/react-canvas-map";
 import TerrainLayer from "@bucky24/react-canvas-terrain";
+import { usePersistedState } from "@bucky24/toolbox/client";
 
 function App() {
     const width = 700;
     const height = 700;
 
-    const [terrainCells, setCells] = useState([
+    const [terrainCells, setCells] = usePersistedState('cells', [
         { x: 3, y: 3 },
         { x: 3, y: 4 },
         { x: 3, y: 2 },
