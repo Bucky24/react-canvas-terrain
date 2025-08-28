@@ -37,7 +37,7 @@ const THING3 = "   \n" +
                "*X \n" +
                "-*-\n" +
                "---";
-const THING4 = "   \n" + 
+const THING4 = "  -\n" + 
                " X*\n" +
                "-*-\n" +
                "---";
