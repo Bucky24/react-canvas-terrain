@@ -13,8 +13,10 @@ import Ground1111 from '../images/dungeon/ground_1_1_1_1.png';
 import Ground1100 from '../images/dungeon/ground_1_1_0_0.png';
 import Ground0110 from '../images/dungeon/ground_0_1_1_0.png';
 
-import Corner0110 from '../images/dungeon/corner_0_1_1_0.png';
 import Corner1111 from '../images/dungeon/corner_1_1_1_1.png';
+import Corner0011 from '../images/dungeon/corner_0_0_1_1.png';
+import Corner1001 from '../images/dungeon/corner_1_0_0_1.png';
+import Corner1100 from '../images/dungeon/corner_1_1_0_0.png';
 import Corner1110 from '../images/dungeon/corner_1_1_1_0.png';
 
 import CliffTopCenter from '../images/dungeon/cliff_top_center.png';
@@ -99,6 +101,14 @@ const THING19 = " * \n" +
                 "*X*\n" +
                 "** \n" +
                 "---";
+const THING20 = "** \n" + 
+                "*X*\n" +
+                "** \n" +
+                "---";
+const THING21 = " **\n" + 
+                "*X*\n" +
+                " **\n" +
+                "---";
 
 function compareGrid(template, grid) {
   for (let i=0;i<template.length;i++) {
@@ -143,7 +153,7 @@ export default class DungeonProcessor extends BaseProcessor {
     } else if (compareGrid(THING8, grid)) {
       image = Ground1000;
     } else if (compareGrid(THING9, grid)) {
-      image = Corner0110;
+      image = Corner1100;
     } else if (compareGrid(THING10, grid)) {
       image = Ground0100;
     } else if (compareGrid(THING11, grid)) {
@@ -164,6 +174,10 @@ export default class DungeonProcessor extends BaseProcessor {
       image = Ground0110;
     } else if (compareGrid(THING19, grid)) {
       image = Corner1110;
+    } else if (compareGrid(THING20, grid)) {
+      image = Corner0011;
+    } else if (compareGrid(THING21, grid)) {
+      image = Corner1001;
     }
 
     const log = y === 1 && x === 4;
