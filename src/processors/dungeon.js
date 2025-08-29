@@ -12,12 +12,15 @@ import Ground1010 from '../images/dungeon/ground_1_0_1_0.png';
 import Ground1111 from '../images/dungeon/ground_1_1_1_1.png';
 import Ground1100 from '../images/dungeon/ground_1_1_0_0.png';
 import Ground0110 from '../images/dungeon/ground_0_1_1_0.png';
+import Ground1110 from '../images/dungeon/ground_1_1_1_0.png';
+import Ground0101 from '../images/dungeon/ground_0_1_0_1.png';
 
 import Corner1111 from '../images/dungeon/corner_1_1_1_1.png';
-import Corner0011 from '../images/dungeon/corner_0_0_1_1.png';
+import Corner0110 from '../images/dungeon/corner_0_1_1_0.png';
 import Corner1001 from '../images/dungeon/corner_1_0_0_1.png';
 import Corner1100 from '../images/dungeon/corner_1_1_0_0.png';
 import Corner1110 from '../images/dungeon/corner_1_1_1_0.png';
+import Corner0011 from '../images/dungeon/corner_0_0_1_1.png';
 
 import CliffTopCenter from '../images/dungeon/cliff_top_center.png';
 import CliffTopTop from '../images/dungeon/cliff_top_top.png';
@@ -29,7 +32,7 @@ const THING = "   \n" +
               " X \n" +
               "-*-\n" +
               "---";
-const THING2 = "   \n" + 
+const THING2 = "- -\n" + 
                "-.-\n" +
                "-*-\n" +
                "---";
@@ -91,11 +94,11 @@ const THING16 = "- -\n" +
                 "-*-";
 const THING17 = "**-\n" + 
                 "*X \n" +
-                "  -\n" +
+                "- -\n" +
                 "---";
 const THING18 = "-**\n" + 
                 " X*\n" +
-                "-  \n" +
+                "- -\n" +
                 "---";
 const THING19 = " * \n" + 
                 "*X*\n" +
@@ -108,6 +111,18 @@ const THING20 = "** \n" +
 const THING21 = " **\n" + 
                 "*X*\n" +
                 " **\n" +
+                "---";
+const THING22 = "***\n" + 
+                "*X*\n" +
+                "- -\n" +
+                "---";
+const THING23 = "-*-\n" + 
+                " X \n" +
+                "-*-\n" +
+                "---";
+const THING24 = "***\n" + 
+                "*X*\n" +
+                " * \n" +
                 "---";
 
 function compareGrid(template, grid) {
@@ -175,9 +190,15 @@ export default class DungeonProcessor extends BaseProcessor {
     } else if (compareGrid(THING19, grid)) {
       image = Corner1110;
     } else if (compareGrid(THING20, grid)) {
-      image = Corner0011;
+      image = Corner0110;
     } else if (compareGrid(THING21, grid)) {
       image = Corner1001;
+    } else if (compareGrid(THING22, grid)) {
+      image = Ground1110;
+    } else if (compareGrid(THING23, grid)) {
+      image = Ground0101;
+    } else if (compareGrid(THING24, grid)) {
+      image = Corner0011;
     }
 
     const log = y === 1 && x === 4;
