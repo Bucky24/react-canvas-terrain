@@ -14,6 +14,8 @@ import Ground1100 from '../images/dungeon/ground_1_1_0_0.png';
 import Ground0110 from '../images/dungeon/ground_0_1_1_0.png';
 import Ground1110 from '../images/dungeon/ground_1_1_1_0.png';
 import Ground0101 from '../images/dungeon/ground_0_1_0_1.png';
+import Ground1101 from '../images/dungeon/ground_1_1_0_1.png';
+import Ground0111 from '../images/dungeon/ground_0_1_1_1.png';
 
 import Corner1111 from '../images/dungeon/corner_1_1_1_1.png';
 import Corner0110 from '../images/dungeon/corner_0_1_1_0.png';
@@ -21,6 +23,10 @@ import Corner1001 from '../images/dungeon/corner_1_0_0_1.png';
 import Corner1100 from '../images/dungeon/corner_1_1_0_0.png';
 import Corner1110 from '../images/dungeon/corner_1_1_1_0.png';
 import Corner0011 from '../images/dungeon/corner_0_0_1_1.png';
+import Corner0010 from '../images/dungeon/corner_0_0_1_0.png';
+import Corner0001 from '../images/dungeon/corner_0_0_0_1.png';
+
+import Mixed1110 from '../images/dungeon/mixed_1_1_1_0.png';
 
 import CliffTopCenter from '../images/dungeon/cliff_top_center.png';
 import CliffTopTop from '../images/dungeon/cliff_top_top.png';
@@ -124,6 +130,26 @@ const THING24 = "***\n" +
                 "*X*\n" +
                 " * \n" +
                 "---";
+const THING25 = "***\n" + 
+                "*X*\n" +
+                "** \n" +
+                "---";
+const THING26 = "***\n" + 
+                "*X*\n" +
+                " **\n" +
+                "---";
+const THING27 = "** \n" + 
+                "*X \n" +
+                "** \n" +
+                "---";
+const THING28 = " **\n" + 
+                " X*\n" +
+                " **\n" +
+                "---";
+const THING29 = " * \n" + 
+                "*X*\n" +
+                "- -\n" +
+                "---";
 
 function compareGrid(template, grid) {
   for (let i=0;i<template.length;i++) {
@@ -199,6 +225,16 @@ export default class DungeonProcessor extends BaseProcessor {
       image = Ground0101;
     } else if (compareGrid(THING24, grid)) {
       image = Corner0011;
+    } else if (compareGrid(THING25, grid)) {
+      image = Corner0010;
+    } else if (compareGrid(THING26, grid)) {
+      image = Corner0001;
+    } else if (compareGrid(THING27, grid)) {
+      image = Ground1101;
+    } else if (compareGrid(THING28, grid)) {
+      image = Ground0111;
+    } else if (compareGrid(THING29, grid)) {
+      image = Mixed1110;
     }
 
     const log = y === 1 && x === 4;
